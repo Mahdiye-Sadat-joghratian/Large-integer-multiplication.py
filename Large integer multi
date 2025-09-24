@@ -1,0 +1,18 @@
+def prod(u: int, v: int):
+    threshold = 5  # مقدار آستانه
+    n = max(len(str(u)), len(str(v)))
+    m = x = y = w = z = 0
+    if u == 0 or v == 0:
+        return 0
+    elif n <= threshold:
+        return u * v
+    else:
+        m = n // 2
+        x = u // (10 ** m); y = u % (10 ** m)
+        w = v // (10 ** m); z = v % (10 ** m)
+        
+        return prod(x, w) * (10 ** (2 * m)) + (prod(x, z) + prod(y, w)) * (10 ** m) + prod(y, z)
+
+
+x = prod(12, 11)
+print(x)
